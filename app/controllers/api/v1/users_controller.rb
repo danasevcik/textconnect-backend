@@ -3,7 +3,14 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
      render json: { user: UserSerializer.new(current_user) }, status: :accepted
-   end
+  end
+
+  def show
+    # byebug
+    @user = User.find(params[:id])
+    @amigas = @user.amigas
+    render json: @amigas
+  end
 
   def create
     @user = User.create(user_params)
@@ -25,6 +32,7 @@ class Api::V1::UsersController < ApplicationController
       render json: { user: {id: @user.id, name: @user.name, age: @user.age, bio: @user.bio, phone_number: @user.phone_number, language: @user.language, photo: @user.photo, username: @user.username}}
     end
   end
+
 
   private
 
