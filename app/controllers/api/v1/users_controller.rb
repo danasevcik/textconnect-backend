@@ -9,7 +9,8 @@ class Api::V1::UsersController < ApplicationController
     # byebug
     @user = User.find(params[:id])
     @amigas = @user.amigas
-    render json: @amigas
+    @conversations = @user.conversations
+    render json: {amigas: @amigas, conversations: @conversations}
   end
 
   def create
