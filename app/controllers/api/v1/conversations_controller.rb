@@ -3,7 +3,7 @@ class Api::V1::ConversationsController < ApplicationController
   def show
     conversation = Conversation.find_by(id: params[:id])
     if conversation
-      render json: conversation.messages
+      render json: {messages: conversation.messages, conversation_id: conversation.id, conversation: conversation}
     else
       render json: {error: 'That conversation does not exist'}, status: 404
     end
