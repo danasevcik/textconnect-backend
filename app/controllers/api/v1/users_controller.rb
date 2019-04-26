@@ -13,7 +13,17 @@ class Api::V1::UsersController < ApplicationController
     render json: {amigas: @amigas, conversations: @conversations}
   end
 
+  def non_amigas
+    # byebug
+    @user = User.find(params[:user][:user_id])
+    @amigas = @user.amigas
+    @users = User.all
+    @non_amigas = @users - @amigas - [@user]
+    render json: {non_amigas: @non_amigas}
+  end
+
   def create
+    # byebug
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token(user_id: @user.id)

@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :amigas, through: :friendships
 
   validates :username, uniqueness: { case_sensitive: true}
-  
+
 end
