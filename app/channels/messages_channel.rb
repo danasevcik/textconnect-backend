@@ -6,6 +6,8 @@ class MessagesChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
+    # puts "here" * 100
+    raise "stop"
     # Any cleanup needed when channel is unsubscribed
   end
 end
