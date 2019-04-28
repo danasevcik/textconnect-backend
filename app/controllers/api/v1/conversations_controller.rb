@@ -23,6 +23,7 @@ class Api::V1::ConversationsController < ApplicationController
   end
 
   def create
+    byebug
     conversation = Conversation.find_or_create_by(conversation_params)
     if conversation.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
