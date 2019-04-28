@@ -42,8 +42,15 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       render json: { user: {id: @user.id, name: @user.name, age: @user.age, bio: @user.bio, phone_number: @user.phone_number, language: @user.language, photo: @user.photo, username: @user.username}}
     else
-      render json: { error: 'failed to find user' }, status: :not_acceptable 
+      render json: { error: 'failed to find user' }, status: :not_acceptable
     end
+  end
+
+  def update
+    # byebug
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    render json: @user
   end
 
 
