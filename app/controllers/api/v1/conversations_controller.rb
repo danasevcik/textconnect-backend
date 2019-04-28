@@ -8,7 +8,13 @@ class Api::V1::ConversationsController < ApplicationController
       translate = Google::Cloud::Translate.new project: project_id
       target = user.language
 
-      messages = conversation.messages.map { |text| translate.translate text.content, to: target }
+      messages = conversation.messages.map { |text|
+        if text.content
+          translate.translate text.content, to: target
+        else
+          translate.translate text, to:target
+        end
+      }
 
       render json: {messages: messages, conversation_id: conversation.id, conversation: conversation}
     else
