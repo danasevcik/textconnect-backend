@@ -1,15 +1,16 @@
 class Api::V1::ConversationsController < ApplicationController
   def show
     conversation = Conversation.find_by(id: params[:id])
+    user = User.find(params[:user][:user_id])
+    # byebug
     if conversation
       project_id = ENV["CLOUD_PROJECT_ID"]
       translate = Google::Cloud::Translate.new project: project_id
-      text = "Hello, world!"
-      target = "ru"
-      translation = translate.translate text, to: target
-      puts "Text: #{text}"
-      puts "Translation: #{translation}"
-      render json: {messages: conversation.messages, conversation_id: conversation.id, conversation: conversation}
+      target = user.language
+
+      messages = conversation.messages.map { |text| translate.translate text.content, to: target }
+
+      render json: {messages: messages, conversation_id: conversation.id, conversation: conversation}
     else
       render json: {error: 'That conversation does not exist'}, status: 404
     end
