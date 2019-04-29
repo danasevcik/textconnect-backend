@@ -3,6 +3,7 @@ class Api::V1::MessagesController < ApplicationController
   skip_before_action :authorized, only: [:listen]
 
   def create
+    # byebug
     message = Message.new(message_params)
     conversation = Conversation.find(message_params[:conversation_id])
     if message.save
