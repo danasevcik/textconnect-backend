@@ -52,3 +52,4 @@ gem "faker", "~> 1.9"
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem "google-cloud-translate", "~> 1.3"
+gem "google-cloud-text_to_speech"
