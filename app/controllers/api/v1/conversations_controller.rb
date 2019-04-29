@@ -10,11 +10,15 @@ class Api::V1::ConversationsController < ApplicationController
 
       messages = conversation.messages.map { |text|
         if text.content
-          translate.translate text.content, to: target
+          author = User.find(text.user_id)
+          message = translate.translate text.content, to: target
+          author.username + ": " + message
         else
           translate.translate text, to:target
         end
       }
+
+
 
       render json: {messages: messages, conversation_id: conversation.id, conversation: conversation}
     else
