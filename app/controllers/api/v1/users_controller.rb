@@ -9,6 +9,7 @@ class Api::V1::UsersController < ApplicationController
     # byebug
     @user = User.find(params[:id])
     @amigas = @user.amigas
+    @amigas = @amigas.sort_by{|amiga| amiga[:username]}
     @conversations = @user.conversations
     render json: {amigas: @amigas, conversations: @conversations}
   end
@@ -19,6 +20,7 @@ class Api::V1::UsersController < ApplicationController
     @amigas = @user.amigas
     @users = User.all
     @non_amigas = @users - @amigas - [@user]
+    @non_amigas = @non_amigas.sort_by{|non_amiga| non_amiga[:username]}
     render json: {non_amigas: @non_amigas}
   end
 
