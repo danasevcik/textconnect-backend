@@ -9,6 +9,7 @@ class Api::V1::ConversationsController < ApplicationController
       target = user.language
 
       messages = conversation.messages.map { |text|
+        # byebug
         if text.content
           author = User.find(text.user_id)
           message = translate.translate text.content, to: target
@@ -17,8 +18,6 @@ class Api::V1::ConversationsController < ApplicationController
           translate.translate text, to:target
         end
       }
-
-
 
       render json: {messages: messages, conversation_id: conversation.id, conversation: conversation}
     else
