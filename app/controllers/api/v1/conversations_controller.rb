@@ -37,6 +37,14 @@ class Api::V1::ConversationsController < ApplicationController
     end
   end
 
+  def update
+    # byebug
+    conversation = Conversation.find(params[:id])
+    title = params[:title][:title]
+    conversation.update(title: title)
+    render json: {conversation: conversation}
+  end
+
   private
 
   def conversation_params
