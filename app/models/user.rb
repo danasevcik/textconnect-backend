@@ -8,9 +8,8 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :amigas, through: :friendships
 
-  # validations for username, password and language
+  # validations for username and language
   validates :username, uniqueness: { case_sensitive: true}
-  validates :password, presence: true
   validates :language, presence: true
 
 end

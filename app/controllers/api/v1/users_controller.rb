@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
     @amigas = @user.amigas
     @amigas = @amigas.sort_by{|amiga| amiga[:username]}
     @conversations = @user.conversations
+    @conversations = @conversations.sort_by{|conversation| conversation[:title]}
     render json: {amigas: @amigas, conversations: @conversations}
   end
 
