@@ -2,11 +2,12 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create, :get_user]
 
   def profile
+    # get user's attributes
      render json: { user: UserSerializer.new(current_user) }, status: :accepted
   end
 
   def show
-    # byebug
+    # sort contacts alphabetically by username
     @user = User.find(params[:id])
     @amigas = @user.amigas
     @amigas = @amigas.sort_by{|amiga| amiga[:username]}
@@ -15,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def non_amigas
-    # byebug
+    # sort "non amigas" alphabetically by username
     @user = User.find(params[:user][:user_id])
     @amigas = @user.amigas
     @users = User.all
@@ -25,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # byebug
+    # create user with username and password
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token(user_id: @user.id)
@@ -36,8 +37,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def get_user
+    # retrieve user on refresh
     token = request.headers["authorization"]
-    # byebug
     id = JWT.decode(token, ENV['SECRET_KEY'])[0]["user_id"]
     @user = User.find(id)
 
@@ -49,7 +50,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    # byebug
+    # allow users to edit profile
     @user = User.find(params[:id])
     @user.update(user_params)
     render json: @user

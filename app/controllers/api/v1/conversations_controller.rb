@@ -1,15 +1,16 @@
 class Api::V1::ConversationsController < ApplicationController
   def show
+    # find conversation & user
     conversation = Conversation.find_by(id: params[:id])
     user = User.find(params[:user][:user_id])
-    # byebug
+
+    # if there is a conversation, initiate translation
     if conversation
       project_id = ENV["CLOUD_PROJECT_ID"]
       translate = Google::Cloud::Translate.new project: project_id
       target = user.language
-
       messages = conversation.messages.map { |text|
-        # byebug
+        # map over messages and send author and message content
         if text.content
           author = User.find(text.user_id)
           message = translate.translate text.content, to: target
@@ -18,7 +19,6 @@ class Api::V1::ConversationsController < ApplicationController
           translate.translate text, to:target
         end
       }
-
       render json: {messages: messages, conversation_id: conversation.id, conversation: conversation}
     else
       render json: {error: 'That conversation does not exist'}, status: 404
@@ -26,7 +26,7 @@ class Api::V1::ConversationsController < ApplicationController
   end
 
   def create
-    byebug
+    # create conversation and broadcast
     conversation = Conversation.find_or_create_by(conversation_params)
     if conversation.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
@@ -38,7 +38,7 @@ class Api::V1::ConversationsController < ApplicationController
   end
 
   def update
-    # byebug
+    # update conversation title
     conversation = Conversation.find(params[:id])
     title = params[:title][:title]
     conversation.update(title: title)

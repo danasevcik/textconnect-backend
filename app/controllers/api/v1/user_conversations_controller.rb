@@ -1,7 +1,9 @@
 class Api::V1::UserConversationsController < ApplicationController
 
   def create
-    # byebug
+    # find user & amiga
+    # find or create conversation
+    # find or create instance of UserConversation (for both users)
     @user = User.find(params[:user][:user_id])
     @amiga = User.find(params[:user][:amiga_id])
     @conversation = Conversation.find_or_create_by(title: "Conversation with #{@user.username.capitalize} and #{@amiga.username.capitalize}")
