@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :get_user]
+  skip_before_action :authorized, only: [:create, :get_user, :index]
+
+  def index
+    @users = User.all
+    render json: @users
+  end
 
   def profile
     # get user's attributes
@@ -44,7 +49,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find(id)
 
     if @user.valid?
-      render json: { user: {id: @user.id, name: @user.name, age: @user.age, bio: @user.bio, phone_number: @user.phone_number, language: @user.language, photo: @user.photo, username: @user.username}}
+      render json: { user: {id: @user.id, name: @user.name, age: @user.age, bio: @user.bio, phone_number: @user.phone_number, language: @user.language, photo: @user.photo, username: @user.username, conversations: @user.conversations}}
     else
       render json: { error: 'failed to find user' }, status: :not_acceptable
     end

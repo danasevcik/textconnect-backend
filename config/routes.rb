@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # USERS
-      resources :users, only: [:create, :show, :update]
+      resources :users, only: [:create, :show, :update, :index]
       # CONVERSATIONS
       resources :conversations, only: [:index, :create, :show, :update]
       # MESSAGES
