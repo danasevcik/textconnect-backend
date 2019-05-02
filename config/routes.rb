@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       post '/remove-friend', to: 'friendships#remove'
       # find message author -> messages controller
       post '/message-author', to: 'messages#author'
+      # get number of unread messages -> users controller
+      post '/get-unread-messages', to: 'users#get_unread'
     end
   end
   mount ActionCable.server => '/cable'

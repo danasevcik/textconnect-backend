@@ -62,6 +62,19 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
+  def get_unread
+    @user = User.find(params[:user][:id])
+    @conversation = Conversation.find(params[:conversation][:id])
+    @messages = @conversation.messages
+    @unread_messages = 0
+    @messages.each do |message|
+      if (message.unread_message = true) && (message.user_id != @user.id)
+        @unread_messages = @unread_messages + 1
+      end
+    end
+    render json: @unread_messages
+  end
+
 
   private
 
