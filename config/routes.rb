@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       post '/add-contacts', to: 'users#non_amigas'
       # remove contact -> friendships controller
       post '/remove-friend', to: 'friendships#remove'
-
+      # find message author -> messages controller
+      post '/message-author', to: 'messages#author'
     end
   end
   mount ActionCable.server => '/cable'

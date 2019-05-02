@@ -12,6 +12,14 @@ class Api::V1::MessagesController < ApplicationController
     end
   end
 
+  def author
+    # find which user a message belongs to (for flash messages)
+    # byebug
+    @message = Message.find(params[:data][:id])
+    @user = User.find(@message.user_id)
+    render json: @user
+  end
+
   # REPLACED WITH SPEECH SYNTHESIS ON FRONT END
   # def listen
   #   client = Google::Cloud::TextToSpeech.new
