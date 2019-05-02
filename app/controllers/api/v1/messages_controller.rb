@@ -20,6 +20,23 @@ class Api::V1::MessagesController < ApplicationController
     render json: @user
   end
 
+  def mark_as_read
+    # mark seen messages as read (called once a user opens a chat)
+    @user = User.find(params[:user][:id])
+    @conversation = Conversation.find(params[:conversation][:id])
+    @messages = @conversation.messages
+    @unread_messages = 0
+    @messages.each do |message|
+      # byebug
+      if (message.unread_message == true) && (message.user_id != @user.id)
+        message.update(unread_message: false)
+      end
+    end
+    render json: @unread_messages
+    # byebug
+
+  end
+
   # REPLACED WITH SPEECH SYNTHESIS ON FRONT END
   # def listen
   #   client = Google::Cloud::TextToSpeech.new

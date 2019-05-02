@@ -63,12 +63,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def get_unread
+    # get the number of unread messages for a particular conversation
     @user = User.find(params[:user][:id])
     @conversation = Conversation.find(params[:conversation][:id])
     @messages = @conversation.messages
     @unread_messages = 0
     @messages.each do |message|
-      if (message.unread_message = true) && (message.user_id != @user.id)
+      if (message.unread_message == true) && (message.user_id != @user.id)
         @unread_messages = @unread_messages + 1
       end
     end

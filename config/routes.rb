@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       post '/message-author', to: 'messages#author'
       # get number of unread messages -> users controller
       post '/get-unread-messages', to: 'users#get_unread'
+      # mark messages as read -> messages controller
+      patch '/mark-as-read', to: 'messages#mark_as_read'
     end
   end
   mount ActionCable.server => '/cable'
