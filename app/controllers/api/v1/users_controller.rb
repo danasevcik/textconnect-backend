@@ -73,6 +73,7 @@ class Api::V1::UsersController < ApplicationController
         @unread_messages = @unread_messages + 1
       end
     end
+    # byebug
     render json: @unread_messages
   end
 
