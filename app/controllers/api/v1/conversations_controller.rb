@@ -9,7 +9,8 @@ class Api::V1::ConversationsController < ApplicationController
       project_id = ENV["CLOUD_PROJECT_ID"]
       translate = Google::Cloud::Translate.new project: project_id
       target = user.language
-      messages = conversation.messages.map { |text|
+      messages = conversation.messages.sort_by { |obj| obj.created_at }.map { |text|
+        # byebug
         # map over messages and send author and message content
         if text.content
           author = User.find(text.user_id)
