@@ -30,6 +30,7 @@ class Api::V1::ConversationsController < ApplicationController
     # create conversation and broadcast
     conversation = Conversation.find_or_create_by(conversation_params)
     if conversation.save
+      # if valid, serialize data and broadcast
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         ConversationSerializer.new(conversation)
       ).serializable_hash

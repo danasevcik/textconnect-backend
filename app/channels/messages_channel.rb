@@ -1,7 +1,7 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
-    # byebug
     conversation = Conversation.find(params[:conversation_id])
+    # stream for the found conversation
     stream_for conversation
   end
 

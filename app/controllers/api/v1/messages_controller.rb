@@ -7,6 +7,7 @@ class Api::V1::MessagesController < ApplicationController
     message = Message.new(message_params)
     conversation = Conversation.find(message_params[:conversation_id])
     if message.save
+      # if valid, broadcast
       MessagesChannel.broadcast_to conversation, message
       render json: message
     end
