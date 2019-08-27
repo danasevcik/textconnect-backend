@@ -9,10 +9,10 @@ Text Connect is a messaging application that allows users to communicate between
 Text Connect was built to connect people who speak different languages. Regardless of the purpose of communication, people should be able to communicate with others across the world.
 
 ## Demo
-You can watch a live demo of the app [here]('https://www.youtube.com/watch?v=GezKCrnQ5iE').
+You can watch a live demo of the app [here](https://www.youtube.com/watch?v=GezKCrnQ5iE).
 
 ## Technology Used
-This project was built using a React frontend. The Github repo for the frontend can be found [here]('https://github.com/danasevcik/textconnect-frontend'). Additional technologies used include:
+This project was built using a React frontend. The Github repo for the frontend can be found [here](https://github.com/danasevcik/textconnect-frontend). Additional technologies used include:
 * Ruby on Rails
 * Redux
 * JWT Authorization
@@ -38,3 +38,7 @@ Text Connect allows users to:
 * View their profile  
 * Edit their profile
 * Securely log out
+
+## How to Use
+1. Follow instructions [here](https://cloud.google.com/translate/docs/quickstarts) to create a Google Cloud Translate key.
+2. Hide this key by following the  instructions [here](https://github.com/bkeepers/dotenv)
