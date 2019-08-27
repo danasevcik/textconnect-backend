@@ -1,25 +1,12 @@
-# README
+# Text Connect
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Text Connect is a messaging application that allows users to communicate between 104 languages.
 
-Things you may want to cover:
+![earth gif](https://media.giphy.com/media/l1KVcrdl7rJpFnY2s/giphy.gif)
 
-* Ruby version
+## Motivation
 
-* System dependencies
+Text Connect was built to connect people who speak different languages. Regardless of the purpose of communication, people should be able to communicate with others across the world.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# textconnect-backend
+## Demo
+You can watch a live demo of the app [here]('https://www.youtube.com/watch?v=GezKCrnQ5iE').
