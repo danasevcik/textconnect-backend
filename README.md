@@ -22,3 +22,19 @@ This project was built using a React frontend. The Github repo for the frontend 
 * Flash Message
 * Semantic
 * Custom CSS
+
+## Features
+Text Connect allows users to:
+* Create an account
+* Securely login to an existing account
+* Add contacts to their contact book
+* Search through contacts
+* Start new conversations
+* Visit existing conversations
+* Send messages to other users in their native language
+* Receive messages in their native language
+* Receive flash notifications when a new message is received
+* Listen to messages read aloud.
+* View their profile  
+* Edit their profile
+* Securely log out
