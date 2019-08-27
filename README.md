@@ -47,3 +47,7 @@ Text Connect allows users to:
 5. Run ```bundle install```
 6. Run ```rails s``` to start the Rails sever
 7. Follow instructions [here](https://github.com/danasevcik/textconnect-frontend) to run the frontend.
+
+![two people holding hands](https://media.giphy.com/media/LwHaQCGZMdD9Ghalrl/giphy.gif)
+
+## Enjoy!
