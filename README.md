@@ -10,3 +10,15 @@ Text Connect was built to connect people who speak different languages. Regardle
 
 ## Demo
 You can watch a live demo of the app [here]('https://www.youtube.com/watch?v=GezKCrnQ5iE').
+
+## Technology Used
+This project was built using a React frontend. The Github repo for the frontend can be found [here]('https://github.com/danasevcik/textconnect-frontend'). Additional technologies used include:
+* Ruby on Rails
+* Redux
+* JWT Authorization
+* Google Cloud Translate
+* Speech Synthesis
+* Action Cable
+* Flash Message
+* Semantic
+* Custom CSS
