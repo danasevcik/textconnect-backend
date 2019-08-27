@@ -40,5 +40,10 @@ Text Connect allows users to:
 * Securely log out
 
 ## How to Use
-1. Follow instructions [here](https://cloud.google.com/translate/docs/quickstarts) to create a Google Cloud Translate key.
-2. Hide this key by following the  instructions [here](https://github.com/bkeepers/dotenv)
+1. Follow instructions [here](https://cloud.google.com/translate/docs/quickstarts) to create a Google Cloud Translate key and hide key.
+2. Hide secret keys by following the instructions [here](https://github.com/bkeepers/dotenv).
+3. Replace environment variables and keys in Conversations Controller
+4. Switch Ruby version to 2.6.1
+5. Run ```bundle install```
+6. Run ```rails s``` to start the Rails sever
+7. Follow instructions [here](https://github.com/danasevcik/textconnect-frontend) to run the frontend.
