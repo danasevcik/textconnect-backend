@@ -36,7 +36,7 @@ Text Connect allows users to:
 * Send messages to other users in their native language
 * Receive messages in their native language
 * Receive flash notifications when a new message is received
-* Listen to messages read aloud.
+* Listen to messages read aloud
 * View their profile  
 * Edit their profile
 * Securely log out
