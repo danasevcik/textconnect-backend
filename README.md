@@ -9,6 +9,8 @@ Text Connect is a messaging application that allows users to communicate between
 Text Connect was built to connect people who speak different languages. Regardless of the purpose of communication, people should be able to communicate with others across the world.
 
 ## Demo
+![demo gif](https://media.giphy.com/media/ZFQqfxChY68AayJDNo/giphy.gif)
+
 You can watch a live demo of the app [here](https://www.youtube.com/watch?v=GezKCrnQ5iE).
 
 ## Technology Used
@@ -34,7 +36,7 @@ Text Connect allows users to:
 * Send messages to other users in their native language
 * Receive messages in their native language
 * Receive flash notifications when a new message is received
-* Listen to messages read aloud.
+* Listen to messages read aloud
 * View their profile  
 * Edit their profile
 * Securely log out
