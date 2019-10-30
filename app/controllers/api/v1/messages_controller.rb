@@ -15,7 +15,6 @@ class Api::V1::MessagesController < ApplicationController
 
   def author
     # find which user a message belongs to (for flash messages)
-    # byebug
     @message = Message.find(params[:data][:id])
     @user = User.find(@message.user_id)
     render json: @user
@@ -29,14 +28,11 @@ class Api::V1::MessagesController < ApplicationController
     @messages = @conversation.messages
     @unread_messages = 0
     @messages.each do |message|
-      # byebug
       if (message.unread_message == true) && (message.user_id != @user.id)
         message.update(unread_message: false)
       end
     end
     render json: @unread_messages
-    # byebug
-
   end
 
   # REPLACED WITH SPEECH SYNTHESIS ON FRONT END
