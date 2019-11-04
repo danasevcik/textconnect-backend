@@ -1,4 +1,6 @@
 class Api::V1::ConversationsController < ApplicationController
+
+  # called from renderConversation
   def show
     # find conversation & user
     conversation = Conversation.find_by(id: params[:id])
