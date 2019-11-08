@@ -1,6 +1,7 @@
 class Api::V1::ConversationsController < ApplicationController
 
   # called from renderConversation
+  # needs internet connection to access google API
   def show
     # find conversation & user
     conversation = Conversation.find_by(id: params[:id])
