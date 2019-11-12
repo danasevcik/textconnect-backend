@@ -8,7 +8,8 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
     # get user's attributes
-     render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    # serialized data includes that users conversations
+    render json: { user: UserSerializer.new(current_user) }, status: :accepted
   end
 
   def show
